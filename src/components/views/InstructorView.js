@@ -5,12 +5,12 @@ const InstructorView = (props) => {
   const {instructor} = props;
   return (
     <div> 
-      <tr>
-      <td><img src={instructor.imageUrl} width="200" alt="instructor"/></td>
-      <td><h1>{instructor.firstName}, {instructor.lastName}</h1></td>
-      <td><p>{instructor.department}</p></td>
-      <td><p>{instructor.imageUrl}</p></td>
-      </tr>
+      
+      <img src={instructor.imageUrl} width="200" alt="instructor"/>
+      <h1>{instructor.firstName}, {instructor.lastName}</h1>
+      <p>{instructor.department}</p>
+      <p>{instructor.imageUrl}</p>
+      
       <ul>
       
       {instructor.courses.map( course => {
@@ -19,17 +19,6 @@ const InstructorView = (props) => {
         );
       })}
       </ul>
-    
-      <Link to={'/'} >
-            <Button variant="contained" color="blue" style={{marginRight: '10px'}}>
-              HOME
-            </Button>
-      </Link> 
-      <Link to={'/instructors'} >
-            <Button variant="contained" color="blue" style={{marginRight: '10px'}}>
-              ALL INSTRUCTORS
-            </Button>
-      </Link> 
     </div>
   );
 

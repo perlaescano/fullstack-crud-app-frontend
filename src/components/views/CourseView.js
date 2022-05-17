@@ -8,16 +8,6 @@ const CourseView = (props) => {
       <h3>{course.timeslot}</h3>
       <h3>{course.location}</h3>
       <h3>{course.instructor.firstName + " " + course.instructor.lastName}</h3>
-      <Link to={'/'} >
-            <Button variant="contained" color="blue" style={{marginRight: '10px'}}>
-              HOME
-            </Button>
-      </Link> 
-      <Link to={'/students'} >
-            <Button variant="contained" color="blue" style={{marginRight: '10px'}}>
-              ALL COURSES
-            </Button>
-      </Link> 
     </div>
   );
 
