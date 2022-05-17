@@ -1,5 +1,7 @@
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { Component } from 'react';
-import { connect } from 'react-redux';
+
 
 
 import { 
@@ -39,5 +41,9 @@ const mapDispatch = (dispatch) => {
     deleteCourse: (courseId) => dispatch(deleteCourseThunk(courseId)),
   };
 };
+
+AllCoursesView.propTypes = {
+  allCourses: PropTypes.array.isRequired,
+}; 
 
 export default connect(mapState, mapDispatch)(AllCoursesContainer);
