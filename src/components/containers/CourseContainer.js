@@ -47,7 +47,7 @@ componentDidMount() {
 render() {
     return (
         <CourseView
-            student={this.props.student}
+            student={this.props.course}
             cancelForm={this.state?.cancelForm}
             handleChange={this.state?.handleChange}
             handleSubmit={this.handleSubmit}
