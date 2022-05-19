@@ -1,49 +1,37 @@
+import {useEffect} from 'react';
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { Component } from 'react';
-import { withRouter } from "react-router-dom";
+import {connect} from 'react-redux';
+import {deleteCourseThunk, fetchAllCoursesThunk} from '../../store/thunks';
+import {AllCoursesView} from '../views';
 
-
-import { 
-  fetchAllCoursesThunk,
-  deleteCourseThunk
-} from '../../store/thunks';
-
-import AllCoursesView from '../views/AllCoursesView';
-
-class AllCoursesContainer extends Component {
-    componentDidMount() {
-      this.props.fetchAllCourses();
-    }
-    render(){
-        return(
-            <div>
-                <AllCoursesView 
-                  courses={this.props.allCourses}
-                  deleteCourse={this.props.deleteCourse}   
-                />
-            </div>
-        )
-    }
+const AllCoursesContainer = ({fetchAllCourses, allCourses, deleteCourse}) => {
+    useEffect(fetchAllCourses, [fetchAllCourses]);
+    return (
+        <AllCoursesView
+            students={allCourses}
+            deleteStudent={deleteCourse}
+        />
+    )
 }
 
 // Map state to props;
-const mapState = (state) => {
-  return {
+const mapState = state => ({
     allCourses: state.allCourses,
-  };
-};
+ 
+});
 
 // Map dispatch to props;
-const mapDispatch = (dispatch) => {
-  return {
+const mapDispatch = dispatch => ({
+  
     fetchAllCourses: () => dispatch(fetchAllCoursesThunk()),
-    deleteCourse: (courseId) => dispatch(deleteCourseThunk(courseId)),
-  };
-};
+    deleteCourse: courseId => dispatch(deleteCourseThunk(courseId)),
+  
+});
 
-AllCoursesView.propTypes = {
+// Type check props;
+AllCoursesContainer.propTypes = {
   allCourses: PropTypes.array.isRequired,
+  fetchAllCourses: PropTypes.func.isRequired,
 }; 
 
-export default withRouter(connect(mapState, mapDispatch)(AllCoursesContainer));
+export default connect(mapState, mapDispatch)(AllCoursesContainer);

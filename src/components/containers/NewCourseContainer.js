@@ -10,65 +10,47 @@ class NewCourseContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-          title: "", 
-          timeslot: "",
-          location: "", 
-          instructorId: null, 
-          redirect: false, 
+          
           redirectId: null
         };
     }
 
-    handleChange = event => {
-      this.setState({
+    handleChange = event => this.setState({
         [event.target.name]: event.target.value
       });
     }
 
     handleSubmit = async event => {
         event.preventDefault();
+        const { redirectId: oldRedirectId, ...course } = this.state;
 
-        let course = {
-            title: this.state.title,
-            timeslot: this.state.timeslot,
-            location: this.state.location,
-            instructorId: this.state.instructorId
-        };
-        
-        let newCourse = await this.props.addCourse(course);
+        const { id: redirectId } = await this.props.addCourse(course);
+        this.setState({ redirectId });
 
-        this.setState({
-          title: this.state.title,
-          timeslot: this.state.timeslot,
-          location: this.state.location,
-          instructorId: null, 
-          redirect: true, 
-          redirectId: newCourse.id
-        });
+    
     }
 
     componentWillUnmount() {
-        this.setState({redirect: false, redirectId: null});
+       this.setState({  redirectId: null });
     }
 
     render() {
-      //go to single course view of newly created course
-        if(this.state.redirect) {
-          return (<Redirect to={`/course/${this.state.redirectId}`}/>)
+      if (this.state.redirectId !== null) {
+        return (<Redirect to={`/course/${this.state.redirectId}`}/>)
         }
         return (
-          <NewCourseView 
-            handleChange = {this.handleChange} 
-            handleSubmit={this.handleSubmit}      
-          />
+          <NewCourseView
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+         />
         );
     }
-}
+  }
 
-const mapDispatch = (dispatch) => {
-    return({
-        addCourse: (course) => dispatch(addCourseThunk(course)),
+const mapDispatchToProps = (dispatch) => {
+  return ({
+      addCourse: (course) => dispatch(addCourseThunk(course)),
     })
 }
 
-export default connect(null, mapDispatch)(NewCourseContainer);
+export default connect(null, mapDispatchToProps)(NewCourseContainer);
