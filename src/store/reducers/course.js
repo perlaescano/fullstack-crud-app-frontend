@@ -1,17 +1,35 @@
-import { FETCH_COURSE } from "../actions/actionTypes";
+import {DELETE_INSTRUCTOR, DELETE_COURSE, EDIT_INSTRUCTOR, EDIT_COURSE, FETCH_COURSE} from "../actions/actionTypes";
+
 
 const initialState = {
+
+
   instructor: {},
 };
 
 // REDUCER;
-const course = (state=initialState, action) => {
+const course = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_COURSE:
-      return action.payload;
-    default:
-      return state;
+      case DELETE_INSTRUCTOR:
+          return {
+              ...state,
+              instructor: initialState.instructor
+          };
+      case EDIT_INSTRUCTOR:
+          return action.payload.id === state.instructorId ? {
+              ...state,
+              instructor: action.payload
+          } : state;
+      case FETCH_COURSE:
+      case EDIT_COURSE:
+          return action.payload;
+      case DELETE_COURSE:
+          return initialState;
+      default:
+          return state;
   }
 };
+
+
 
 export default course;
