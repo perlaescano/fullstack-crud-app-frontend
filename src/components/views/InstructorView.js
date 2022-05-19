@@ -1,27 +1,23 @@
-import { Link } from "react-router-dom";
-import { Button } from "@material-ui/core";
+import NavigableContainer from "../containers/NavigableContainer";
+import {useStyles} from "../Styles";
 
 const InstructorView = (props) => {
   const {instructor} = props;
-  return (
-    <div> 
-      
-      <img src={instructor.imageUrl} width="200" alt="instructor"/>
-      <h1>{instructor.firstName}, {instructor.lastName}</h1>
-      <p>{instructor.department}</p>
-      <p>{instructor.imageUrl}</p>
-      
-      <ul>
-      
-      {instructor.courses.map( course => {
-        return (
-          <li key={course.id}>{course.title}</li>
-        );
-      })}
-      </ul>
-    </div>
-  );
-
+    const classes = useStyles();
+    return (
+        <NavigableContainer classes={classes}>
+            <h1>{instructor.name}</h1>
+            <p>{instructor.deparment}</p>
+            <p>{instructor.imageurl}</p>
+            <ul>
+                {instructor.course.map(course => {
+                    let info = course.title + " " + course.timeslot + course.location ;
+                    return (
+                        <li key={course.id}>{info}</li>
+                    );
+                })}
+            </ul>
+        </NavigableContainer>
+    );
 };
-
 export default InstructorView;
