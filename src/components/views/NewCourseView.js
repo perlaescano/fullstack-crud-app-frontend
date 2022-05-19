@@ -1,43 +1,45 @@
+import {makeStyles} from '@mui/styles';
+import NavigableContainer from "../containers/NavigableContainer";
+import CourseForm from "../forms/CourseForm";
 
 
+const useStyles = makeStyles(() => ({
+    formContainer: {
+        width: '500px',
+        backgroundColor: '#61ffa8',
+        borderRadius: '5px',
+        margin: 'auto',
+    },
+    title: {
+        flexGrow: 1,
+        textAlign: 'left',
+        textDecoration: 'none'
+    },
+    customizeAppBar: {
+        backgroundColor: '#11153e',
+        shadows: ['none'],
+    },
+    formTitle: {
+        backgroundColor: '#261c69',
+        marginBottom: '15px',
+        textAlign: 'center',
+        borderRadius: '5px 5px 0px 0px',
+        padding: '3px'
+    },
+    labelStyle: {
+        color: '#9c40f7',
+        fontWeight: 'bold'
+    },
+}));
 
-const NewCourseView = (props) => {
-  const {handleChange, handleSubmit } = props;
-
-  return (
-    <div className="root">
-      <div className="formContainer">
-        <div className="formTitle">
-          <h2 style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
-            New Course
-          </h2>
-        </div>
-        <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
-          <label style= {{color:'#11153e', fontWeight: 'bold'}}>Title: </label>
-          <input type="text" name="title" onChange ={(e) => handleChange(e)} />
-          <br/>
-          <br/>
-
-          <label style={{color:'#11153e', fontWeight: 'bold'}}>Timeslot: </label>
-          <input type="text" name="timeslot" onChange={(e) => handleChange(e)} />
-          <br/>
-          <br/>
-
-          <label style={{color:'#11153e', fontWeight: 'bold'}}>instructorId: </label>
-          <input type="text" name="instructorId" onChange={(e) => handleChange(e)} />
-          <br/>
-          <br/>
-
-          <button type="submit">
-            Submit
-          </button>
-          <br/>
-          <br/>
-        </form>
-        </div>
-      </div>
-    
-  )
+const NewCourseView = ({handleChange, handleSubmit}) => {
+const courses = useStyles();
+return (
+  <NavigableContainer courses={courses}>
+      <CourseForm handleChange={handleChange} handleSubmit={handleSubmit}/>
+  </NavigableContainer>
+);
 }
+
 
 export default NewCourseView;
