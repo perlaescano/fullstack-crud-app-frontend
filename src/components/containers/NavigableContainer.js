@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import NavBar from "../NavBar";
 
 const NavigableContainer = ({classes, children}) => {

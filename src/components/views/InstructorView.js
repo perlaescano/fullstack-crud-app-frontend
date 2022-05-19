@@ -5,7 +5,7 @@ const InstructorView = (props) => {
   const {instructor} = props;
     const classes = useStyles();
     return (
-        <NavigableContainer classes={classes}>
+        <NavigableContainer courses={courses}>
             <h1>{instructor.name}</h1>
             <p>{instructor.deparment}</p>
             <p>{instructor.imageurl}</p>
