@@ -1,21 +1,15 @@
 
-
-import { Link } from 'react-router-dom';
-
-
+import { useStyles } from '../Styles';
+import NavigableContainer from "../containers/NavigableContainer";
 
 const HomePageView = () => {
+  const courses = useStyles();
   return (
-    <div>
-      <h6>Final Project</h6>
-      <Link to={'/instructors'} > All Instructors </Link>
-      <Link to={'/courses'} > All Courses </Link>
-      
-    </div>
+    <NavigableContainer courses={courses}>
+      <div className={courses.info}><h1>Home Page</h1></div>
+      </NavigableContainer>
   );    
 }
-
-
 
 
 export default HomePageView;
