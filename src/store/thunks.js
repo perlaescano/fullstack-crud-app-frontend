@@ -33,6 +33,16 @@ export const fetchInstructorThunk = (id) => async (dispatch) => {
   }
 };
 
+export const addInstructorThunk = instructor => async (dispatch) => {
+    try {
+        const res = await axios.post(`/api/instructors`, campus);
+        dispatch(ac.addInstructor(res.data));
+        return res.data;
+    } catch (err) {
+        console.error(err);
+    }
+};
+
 //All courses
 export const fetchAllCoursesThunk = () => async (dispatch) => {
   try {
@@ -42,6 +52,8 @@ export const fetchAllCoursesThunk = () => async (dispatch) => {
     console.error(err);
   }
 };
+
+
 
 export const addCourseThunk = (course) => async (dispatch) => {
   // course = { title: "CSCI 127" }

@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import {memo} from "react";
 import {AccountCircle} from "@mui/icons-material";
+import React, { Component }  from 'react';
 
 const ValidatableField = ({disabled, onChange, ...props}) => {
     return <TextField
@@ -94,4 +95,4 @@ const InstructorForm = memo((
     );
 });
 
-export default InstructorForm; 
+export default InstructorForm;
