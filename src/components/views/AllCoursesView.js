@@ -6,6 +6,8 @@ import {CourseCard} from "../cards/CourseCard";
 import {Button, Card, CardActions} from '@mui/material';
 import {Link} from "react-router-dom";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import React, { Component }  from 'react';
+
 
 const CARD_HEIGHT = 130;
 const CARD_WIDTH = 1.7125 * CARD_HEIGHT;
@@ -68,4 +70,4 @@ const NewCourse = () => {
       deleteCourse: PropTypes.func.isRequired,
   };
   
-  
+  export default AllCoursesView; 

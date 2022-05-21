@@ -29,7 +29,7 @@ const InstructorForm = memo((
     const InstructorField = () =>
         <ValidatableField
             label="Instructor ID" name="instructorId" defaultValue={course?.instructorId} onChange={handleChange}
-            type="number" inputProps={{min: 0, step: 1}} disabled={disableIntructor} required={!disableCampus} fullWidth/>;
+            type="number" inputProps={{min: 0, step: 1}} disabled={disableIntructor} required={!disableInstructor} fullWidth/>;
     const FirstNameField = () =>
         <ValidatableField
             label="First Name" name="firstname"

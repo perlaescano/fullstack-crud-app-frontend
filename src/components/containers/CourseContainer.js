@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCourseThunk } from "../../store/thunks";
+//import { fetchCourseThunk } from "../../store/thunks";
 import { editCourseThunk, fetchCourseThunk } from "../../store/thunks";
 import { CourseView } from "../views";
 
 class CourseContainer extends Component {
-  
+
   handleChange = event => this.setState(prevState => ({
     editedCourse: {
         ...prevState.editedCourse,
@@ -22,7 +22,7 @@ cancelFrom = event => this.setState({
 
 handleSubmit = async event => {
     event.preventDefault();
-    if (this.state?.handleChange) { // submit button
+    if (this.state.handleChange) { // submit button
         // do the submission
         await this.props.editCourse({
             ...this.state.editedCourse,
@@ -36,7 +36,7 @@ handleSubmit = async event => {
             handleChange: this.handleChange // set handleChange to actually do things
         });
 
-  
+
     }
 }
 
@@ -48,8 +48,8 @@ render() {
     return (
         <CourseView
             student={this.props.course}
-            cancelForm={this.state?.cancelForm}
-            handleChange={this.state?.handleChange}
+            cancelForm={this.state.cancelForm}
+            handleChange={this.state.handleChange}
             handleSubmit={this.handleSubmit}
         />
     );

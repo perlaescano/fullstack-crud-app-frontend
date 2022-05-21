@@ -1,6 +1,6 @@
 import {makeStyles} from "@mui/styles";
 
-const applyStyles = makeStyles(theme => ({
+const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
     },
@@ -29,4 +29,4 @@ const applyStyles = makeStyles(theme => ({
 
 }));
 
-export { applyStyles };
+export { useStyles };

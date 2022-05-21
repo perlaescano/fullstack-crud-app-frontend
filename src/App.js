@@ -9,9 +9,10 @@ import {
   CourseContainer,
   AllInstructorsContainer,
   AllCoursesContainer,
-  NewCourseContainer
+  NewCourseContainer,
+  NewInstructorContainer
 } from './components/containers';
-
+import React, { Component }  from 'react';
 // if you create separate components for adding/editing 
 // a student or instructor, make sure you add routes to those
 // components here

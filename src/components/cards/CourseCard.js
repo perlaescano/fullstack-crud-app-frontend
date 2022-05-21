@@ -1,4 +1,6 @@
 import {GenericCard} from "./GenericCard";
+import React, { Component }  from 'react';
+
 
 export const CourseCard = props =>
     <GenericCard

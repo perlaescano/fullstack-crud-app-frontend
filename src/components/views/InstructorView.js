@@ -1,11 +1,12 @@
 import NavigableContainer from "../containers/NavigableContainer";
 import {useStyles} from "../Styles";
+import React from 'react';
 
 const InstructorView = (props) => {
   const {instructor} = props;
-    const classes = useStyles();
+    const course = useStyles();
     return (
-        <NavigableContainer courses={courses}>
+        <NavigableContainer courses={course}>
             <h1>{instructor.name}</h1>
             <p>{instructor.deparment}</p>
             <p>{instructor.imageurl}</p>

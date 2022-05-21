@@ -9,6 +9,8 @@ import {
 } from "@mui/material";
 import {memo} from "react";
 import {AccountCircle} from "@mui/icons-material";
+import React, { Component }  from 'react';
+
 
 const ValidatableField = ({disabled, onChange, ...props}) => {
     return <TextField
@@ -19,6 +21,7 @@ const ValidatableField = ({disabled, onChange, ...props}) => {
 
 const CourseForm = memo((
     {
+        instructor,
         handleChange,
         handleSubmit,
         course,
@@ -28,26 +31,26 @@ const CourseForm = memo((
     }) => {
     const CourseField = () =>
         <ValidatableField
-            label="Instructor ID" name="instructorId" defaultValue={instructor?.courseId} onChange={handleChange}
-            type="number" inputProps={{min: 0, step: 1}} disabled={disableCampus} required={!disableInstructor} fullWidth/>;
+            label="Instructor ID" name="instructorId" defaultValue={instructor.courseId} onChange={handleChange}
+            type="number" inputProps={{min: 0, step: 1}} disabled={disableInstructor} required={!disableInstructor} fullWidth/>;
     const TitleField = () =>
         <ValidatableField
             label="title" name="tirle"
-            defaultValue={course?.title}
+            defaultValue={course.title}
             onChange={handleChange}
             InputProps={{startAdornment}}
             required fullWidth/>;
     const TimeSlotField = () =>
         <ValidatableField
             label="Time Slot" name="time"
-            defaultValue={course?.time}
+            defaultValue={course.time}
             onChange={handleChange}
             InputProps={{startAdornment}}
             required fullWidth/>;
     const LocationField = () =>
         <ValidatableField
             label="Location" name="location"
-            defaultValue={course?.location}
+            defaultValue={course.location}
             onChange={handleChange}
             type="location" required fullWidth/>
 
@@ -85,4 +88,4 @@ const CourseForm = memo((
     );
 });
 
-export default CourseForm; 
+export default CourseForm;

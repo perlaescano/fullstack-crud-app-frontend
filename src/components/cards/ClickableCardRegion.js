@@ -1,6 +1,7 @@
 import {CardActionArea} from "@mui/material";
 import {Link} from "react-router-dom";
 import {memo} from "react";
+import React, { Component }  from 'react';
 
 const ClickableCardRegion = memo(({ className, to, children }) => {
     if (!to)
@@ -14,4 +15,4 @@ const ClickableCardRegion = memo(({ className, to, children }) => {
     );
 });
 
-export default ClickableCardRegion; 
+export default ClickableCardRegion;

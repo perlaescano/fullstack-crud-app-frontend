@@ -1,6 +1,8 @@
 import {Button, Card, CardActions, CardContent, CardMedia, Typography} from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ClickableCardRegion from "./ClickableCardRegion";
+import React, { Component }  from 'react';
+
 
 export const GenericCard = ({
      classes,

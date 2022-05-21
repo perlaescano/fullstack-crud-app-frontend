@@ -5,6 +5,9 @@ import {InstructorCard} from "../cards/InstructorCard";
 import {Button, Card, CardActions} from "@mui/material";
 import {Link} from "react-router-dom";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import React, { Component }  from 'react';
+import PropTypes from "prop-types";
+
 
 const CARD_HEIGHT = 130;
 const CARD_WIDTH = 1.7125 * CARD_HEIGHT;
@@ -37,7 +40,7 @@ const AllInstructorsView = ({ intructors, deleteInstructor}) => {
                   gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
                   gridGap: "10px",
               }}>
-                  <NewCampus/>
+                  <NewInstructor/>
               </div>
           </NavigableContainer>
       );
@@ -66,4 +69,4 @@ AllInstructorsView.propTypes = {
     deleteInstructor: PropTypes.func.isRequired,
 };
 
-export default AllInstructorsView; 
+export default AllInstructorsView;

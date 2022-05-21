@@ -1,5 +1,7 @@
 import {AppBar, Button, Toolbar, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
+import React, { Component }  from 'react';
+
 
 const NavBar = ({ courses }) => {
     return (
@@ -25,4 +27,4 @@ const NavBar = ({ courses }) => {
     );
 };
 
-export default NavBar; 
+export default NavBar;

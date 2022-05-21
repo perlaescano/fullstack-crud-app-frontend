@@ -3,6 +3,7 @@ import NavigableContainer from "../containers/NavigableContainer";
 import CourseForm from "../forms/CourseForm";
 import {CourseCard} from "../cards/CourseCard";
 import {InstructorCard} from "../cards/InstructorCard";
+import React, { Component }  from 'react';
 
 const CourseView = ({ course, cancelForm, handleChange, handleSubmit }) => {
   const classes = useStyles();

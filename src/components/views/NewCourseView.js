@@ -1,6 +1,7 @@
 import {makeStyles} from '@mui/styles';
 import NavigableContainer from "../containers/NavigableContainer";
 import CourseForm from "../forms/CourseForm";
+import React, { Component }  from 'react';
 
 
 const useStyles = makeStyles(() => ({

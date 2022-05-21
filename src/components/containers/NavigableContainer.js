@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import NavBar from "../NavBar";
+import React from "react";
+import NavBar from "../navBar";
 
-const NavigableContainer = ({classes, children}) => {
+const NavigableContainer = ({courses, children, ActionButtonComponent = () => null}) => {
     return (
-        <div className={classes.root}>
-            <NavBar classes={classes}/>
+        <div className={courses.root}>
+            <NavBar courses={courses} ActionButtonComponent={ActionButtonComponent}/>
             {children}
         </div>
     )
 }
 
-export default NavigableContainer; 
+export default NavigableContainer;

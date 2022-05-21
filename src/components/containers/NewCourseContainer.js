@@ -4,13 +4,14 @@ import { Redirect } from 'react-router-dom';
 
 import NewCourseView from '../views/NewCourseView';
 import { addCourseThunk } from '../../store/thunks';
+import React from 'react';
 
 
 class NewCourseContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-          
+
           redirectId: null
         };
     }
@@ -26,7 +27,7 @@ class NewCourseContainer extends Component {
         const { id: redirectId } = await this.props.addCourse(course);
         this.setState({ redirectId });
 
-    
+
     }
 
     componentWillUnmount() {
