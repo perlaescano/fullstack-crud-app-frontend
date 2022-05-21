@@ -30,7 +30,7 @@ const NewCourse = () => {
       const classes = useStyles();
       const { width: pageWidth } = useWindowDimensions();
       const numColumns = Math.round(Math.max(pageWidth / CARD_WIDTH, 1));
-  
+
       if (!courses.length) {
           return (
             <NavigableContainer classes={classes}>
@@ -64,10 +64,10 @@ const NewCourse = () => {
           </NavigableContainer>
       );
   };
-  
+
   AllCoursesView.propTypes = {
       courses: PropTypes.array.isRequired,
       deleteCourse: PropTypes.func.isRequired,
   };
-  
-  export default AllCoursesView; 
+
+  export default AllCoursesView;
