@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import NewInstructorView from '../views/NewInstructorView';
+//import NewInstructorView from '../views/NewInstructorView';
 import { addInstructorThunk } from '../../store/thunks';
 import {NewInstructorView} from "../views";
 import React from 'react';
@@ -49,7 +49,7 @@ class NewInstructorContainer extends Component {
 
   const mapDispatchToProps = (dispatch) => {
     return ({
-        addInstructor: (course) => dispatch(addInstructorThunk(instructor)),
+        addInstructor: (instructor) => dispatch(addInstructorThunk(instructor)),
       })
   }
 

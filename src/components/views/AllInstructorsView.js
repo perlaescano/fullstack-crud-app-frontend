@@ -16,7 +16,7 @@ const NewInstructor = () => {
   return (
       <Card raised>
           <CardActions>
-              <Link to={`newintructor`}>
+              <Link to={`newinstructor`}>
                   <Button aria-label="Add New Instructor" startIcon={<AddCircleIcon/>}>
                       Add New Instructor
                   </Button>
@@ -27,14 +27,14 @@ const NewInstructor = () => {
 }
 
 
-const AllInstructorsView = ({ intructors, deleteInstructor}) => {
+const AllInstructorsView = ({ instructors, deleteInstructor}) => {
   const classes = useStyles();
   const { width: pageWidth } = useWindowDimensions();
   const numColumns = Math.round(Math.max(pageWidth / CARD_WIDTH, 1));
-  if (!intructors.length) {
+  if (!instructors.length) {
       return (
           <NavigableContainer classes={classes}>
-              <p>There are no intructors.</p>
+              <p>There are no instructors.</p>
               <div style={{
                   display: "inline-grid",
                   gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
@@ -53,19 +53,19 @@ const AllInstructorsView = ({ intructors, deleteInstructor}) => {
               gridGap: "10px",
           }}>
               <NewInstructor/>
-              {intructors.map(intructor => <InstructorCard
-                  key={intructor.id}
+              {instructors.map(instructor => <InstructorCard
+                  key={instructor.id}
                   classes={classes}
                   deleteFn={deleteInstructor}
                   cardHeight={CARD_HEIGHT}
-                  object={intructor}/>)}
+                  object={instructor}/>)}
           </div>
       </NavigableContainer>
   );
 };
 
 AllInstructorsView.propTypes = {
-  intructors: PropTypes.array.isRequired,
+  instructors: PropTypes.array.isRequired,
     deleteInstructor: PropTypes.func.isRequired,
 };
 

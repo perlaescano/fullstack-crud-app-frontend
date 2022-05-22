@@ -20,6 +20,7 @@ const ValidatableField = ({disabled, onChange, ...props}) => {
 
 const InstructorForm = memo((
     {
+        instructor,
         handleChange,
         handleSubmit,
         course,
@@ -29,32 +30,32 @@ const InstructorForm = memo((
     }) => {
     const InstructorField = () =>
         <ValidatableField
-            label="Instructor ID" name="instructorId" defaultValue={course?.instructorId} onChange={handleChange}
-            type="number" inputProps={{min: 0, step: 1}} disabled={disableIntructor} required={!disableInstructor} fullWidth/>;
+            label="Instructor ID" name="instructorId" defaultValue={course.instructorId} onChange={handleChange}
+            type="number" inputProps={{min: 0, step: 1}} disabled={disableInstructor} required={!disableInstructor} fullWidth/>;
     const FirstNameField = () =>
         <ValidatableField
             label="First Name" name="firstname"
-            defaultValue={instructor?.firstname}
+            defaultValue={instructor.firstname}
             onChange={handleChange}
             InputProps={{startAdornment}}
             required fullWidth/>;
     const LastNameField = () =>
         <ValidatableField
             label="Last Name" name="lastname"
-            defaultValue={instructor?.lastname}
+            defaultValue={instructor.lastname}
             onChange={handleChange}
             InputProps={{startAdornment}}
             required fullWidth/>;
     const DepartmentField = () =>
         <ValidatableField
             label="Department" name="department"
-            defaultValue={instructor?.department}
+            defaultValue={instructor.department}
             onChange={handleChange}
             type="department" required fullWidth/>;
     const ImageUrlField = () =>
         <ValidatableField
             label="Image (URL)" name="imageUrl"
-            defaultValue={instructor?.imageUrl}
+            defaultValue={instructor.imageUrl}
             onChange={handleChange}
             fullWidth/>;
 
@@ -85,7 +86,7 @@ const InstructorForm = memo((
                 <LastNameField/>
                 <DepartmentField/>
                 <ImageUrlField/>
-                <CourseField/>
+                <InstructorField/>
             </CardContent>
             <CardActions sx={{display: "flex", flexWrap: "wrap", justifyContent: "space-around"}}>
                 { cancelForm ? <Button type="button" onClick={cancelForm}>Cancel</Button> : null }

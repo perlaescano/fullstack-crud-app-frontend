@@ -43,4 +43,4 @@ return (
 }
 
 
-export default NewCourseView;
+export default NewInstructorView;
