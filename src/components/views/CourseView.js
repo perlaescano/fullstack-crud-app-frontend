@@ -1,36 +1,29 @@
-import {useStyles} from "../Styles";
-import NavigableContainer from "../containers/NavigableContainer";
-import CourseForm from "../forms/CourseForm";
-import {CourseCard} from "../cards/CourseCard";
-import {InstructorCard} from "../cards/InstructorCard";
+import { Link, useHistory } from "react-router-dom";
 import React, { Component }  from 'react';
 
-const CourseView = ({ course, cancelForm, handleChange, handleSubmit }) => {
-  const classes = useStyles();
+
+const CourseView = (props) => {
+  const history = useHistory();
+  const { course } = props;
+  if(!course){
+    return <h1>The course does not exist</h1>
+  }
   return (
-      <NavigableContainer course={course}>
-          <div style={{
-              display: "flex",
-              gridGap: "10px",
-          }}>
-              <div style={{
-                  display: "grid",
-                  height: "90vh",
-                  // flexWrap: "wrap",
-                  gridGap: "10px"
-              }}>
-                  <CourseCard course={course} object={course} cardHeight="auto" notClickable/>
-                  <InstructorCard course={course} object={course.instructor} cardHeight="auto"/>
-              </div>
-              <CourseForm
-                  cancelForm={cancelForm}
-                  handleChange={handleChange}
-                  handleSubmit={handleSubmit}
-                  course={course}
-              />
-          </div>
-      </NavigableContainer>
+    <div>
+      <h1>{course.title}</h1>
+      {course.instructor ? <h3>{course.instructor.firstname + " " + course.instructor.lastname}</h3>: <h3>staff</h3>}
+      <button
+        onClick={() => {
+          history.push(`/course/${course.id}/edit`);
+        }}
+      >
+        Edit Course Info
+      </button>
+      {course.instructor ? (<Link to={`/instructor/${course.instructor.id}`}>{course.instructor.firstname + " " + course.instructor.lastname}</Link>) :
+      (<p>No Instructor</p>)}
+    </div>
   );
+
 };
 
 export default CourseView;

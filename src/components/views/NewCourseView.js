@@ -1,10 +1,7 @@
 import {makeStyles} from '@mui/styles';
-//import NavigableContainer from "../containers/NavigableContainer";
-//import CourseForm from "../forms/CourseForm";
 import Button from "@material-ui/core/Button";
 import React, { Component }  from 'react';
 import Typography from "@material-ui/core/Typography";
-
 
 
 const NewCourseView = ({handleChange, handleSubmit}) => {
@@ -14,14 +11,14 @@ return (
   <h1>New Course</h1>
 
   <div className={courses.root}>
-    <div className={courses.formContainer}>
-      <div className={courses.formTitle}>
+    <div className={courses.courseFormContainer}>
+      <div className={courses.courseFormTitle}>
         <Typography
           style={{
             fontWeight: "bold",
-            fontFamily: "Courier, sans-serif",
             fontSize: "20px",
-            color: "#11153e",
+            color: "white",
+            fontFamily: "Courier, sans-serif",
           }}
         >
           Add a Course
@@ -31,7 +28,7 @@ return (
         style={{ textAlign: "center" }}
         onSubmit={(e) => handleSubmit(e)}
       >
-        <label style={{ color: "#11153e", fontWeight: "bold" }}>
+        <label style={{ color: "black", fontWeight: "bold" }}>
           Title:{" "}
         </label>
         <input
@@ -43,7 +40,7 @@ return (
         <br />
         <br />
 
-        <label style={{ color: "#11153e", fontWeight: "bold" }}>
+        <label style={{ color: "black", fontWeight: "bold" }}>
           Timeslot:{" "}
         </label>
         <input
@@ -55,7 +52,7 @@ return (
         <br />
         <br />
 
-        <label style={{ color: "#11153e", fontWeight: "bold" }}>
+        <label style={{ color: "black", fontWeight: "bold" }}>
           Instructor ID:{" "}
         </label>
         <input
@@ -67,7 +64,7 @@ return (
         <br />
         <br />
 
-        <Button variant="contained" color="primary" type="submit">
+        <Button variant="contained" type="submit" style = {{backgroundColor:"navy blue"}} >
           Submit
         </Button>
         <br />
@@ -81,6 +78,20 @@ return (
 }
 
 const useStyles = makeStyles(() => ({
-    
+  courseFormContainer: {
+    width: "500px",
+    backgroundColor: "#f0f0f5",
+    borderRadius: "5px",
+    margin: "auto",
+  },
+  courseFormTitle: {
+    backgroundColor: "#7d0aff",
+    marginBottom: "15px",
+    textAlign: "center",
+    borderRadius: "5px 5px 0px 0px",
+    padding: "3px",
+  },
 }));
+
+
 export default NewCourseView;

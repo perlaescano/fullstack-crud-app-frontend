@@ -18,11 +18,11 @@ class InstructorContainer extends Component {
   render() {
     return (
       <div>
-      <InstructorView
-        instructor={this.props.instructor}
-        editCourse={this.props.editCourse}
-        allCourses={this.props.allCourses}
-      />
+        <InstructorView
+          instructor={this.props.instructor}
+          editCourse={this.props.editCourse}
+          allCourses={this.props.allCourses}
+        />
       </div>
     );
   }

@@ -14,6 +14,7 @@ import {
   NewInstructorContainer
 } from './components/containers';
 import React, { Component }  from 'react';
+import NavBar from './components/navBar'
 // if you create separate components for adding/editing
 // a student or instructor, make sure you add routes to those
 // components here
@@ -21,6 +22,7 @@ import React, { Component }  from 'react';
 const App = () => {
   return (
     <div className="App">
+      <NavBar/>
       <Switch>
         <Route exact path="/" component={HomePageContainer} />
         <Route exact path="/instructors" component={AllInstructorsContainer} />
