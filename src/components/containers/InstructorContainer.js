@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {fetchInstructorThunk, deleteInstructorThunk, editInstructorThunk, deleteCourseThunk} from "../../store/thunks";
 import { InstructorView } from "../views";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import {Link} from "react-router-dom";
+import {Button} from "@mui/material";
 
 const InstructorContainer = ({instructor: object,
                               fetchInstructor,
