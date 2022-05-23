@@ -16,10 +16,7 @@ return (
             <div className={instructors.instructorFormTitle}>
               <Typography
                 style={{
-                  fontWeight: "bold",
-                  fontSize: "20px",
-                  color: "white",
-                  fontFamily: "Courier, sans-serif",
+                  fontWeight: "bold", fontSize: "20px", color: "white",fontFamily: "Courier, sans-serif",
                 }}
               >
                 Add an Instructor
@@ -52,7 +49,16 @@ return (
               />
               <br />
               <br />
-
+              <label style={{ color: "black", fontWeight: "bold" }}>
+                Department:{" "}
+              </label>
+              <input
+                type="text"
+                name="Department"
+                onChange={(e) => handleChange(e)}
+              />
+              <br />
+              <br />
               <label style={{ color: "black", fontWeight: "bold" }}>
                 Image URL:{" "}
               </label>
