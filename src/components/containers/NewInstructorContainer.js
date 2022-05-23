@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 //import NewInstructorView from '../views/NewInstructorView';
 import { addInstructorThunk } from '../../store/thunks';
 import {NewInstructorView} from "../views";
@@ -36,7 +36,7 @@ class NewInstructorContainer extends Component {
 
     render() {
       if (this.state.redirectId !== null) {
-        return (<Redirect to={`/course/${this.state.redirectId}`}/>)
+        return (<useNavigate to={`/course/${this.state.redirectId}`}/>)
         }
         return (
           <NewInstructorView

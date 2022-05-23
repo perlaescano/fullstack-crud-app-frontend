@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchInstructorThunk } from "../../store/thunks";
-
+import {fetchInstructorThunk, deleteInstructorThunk, editInstructorThunk, deleteCourseThunk } from "../../store/thunks";
 import { InstructorView } from "../views";
 
-class InstructorContainer extends Component {
+const InstructorContainer = ({instructor: object, fetchInstructor, deleteInstructor, editInstructor: editObject, deleteCourse}) =>{
   componentDidMount() {
     //getting instructor ID from url
     this.props.fetchInstructor(this.props.match.params.id);
@@ -12,7 +11,7 @@ class InstructorContainer extends Component {
 
   render() {
     return (
-      <InstructorView 
+      <InstructorView
         instructor={this.props.instructor}
       />
     );

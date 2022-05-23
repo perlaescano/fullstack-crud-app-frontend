@@ -1,7 +1,8 @@
 import "./App.css";
 
 //Router
-import { Switch, Route } from "react-router-dom";
+import { Route , Switch} from "react-router-dom";
+
 //Components
 import {
   HomePageContainer,

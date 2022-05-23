@@ -26,14 +26,15 @@ const NewCourse = () => {
     );
   }
 
-  const AllCoursesView = ({ courses, deleteCourse }) => {
+  const AllCoursesView = ({ courses, deleteCourse }) =>{
+
       const classes = useStyles();
       const { width: pageWidth } = useWindowDimensions();
       const numColumns = Math.round(Math.max(pageWidth / CARD_WIDTH, 1));
 
       if (!courses.length) {
           return (
-            <NavigableContainer classes={classes}>
+            <NavigableContainer courses={courses}>
                 <p>There are no courses.</p>
                 <div style={{
                     display: "inline-grid",
@@ -47,16 +48,16 @@ const NewCourse = () => {
       }
 
       return (
-          <NavigableContainer classes={classes}>
+          <NavigableContainer courses={courses}>
               <div style={{
                   display: "inline-grid",
                   gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
                   gridGap: "10px",
               }}>
-                  <NewCourse classes={classes}/>
+                  <NewCourse courses={courses}/>
                   {courses.map(course => <CourseCard
                       key={course.id}
-                      classes={classes}
+                      courses={courses}
                       deleteFn={deleteCourse}
                       cardHeight={CARD_HEIGHT}
                       object={course}/>)}
@@ -69,5 +70,6 @@ const NewCourse = () => {
       courses: PropTypes.array.isRequired,
       deleteCourse: PropTypes.func.isRequired,
   };
+
 
   export default AllCoursesView;

@@ -1,4 +1,5 @@
 import {useStyles} from "../Styles";
+import {useEffect} from 'react';
 import NavigableContainer from "../containers/NavigableContainer";
 import useWindowDimensions from "../../utils/WindowDimensions";
 import {InstructorCard} from "../cards/InstructorCard";
@@ -25,7 +26,8 @@ const NewInstructor = ({courseName}) => {
 }
 
 
-const AllIntructorsView = ({ instructors, deleteInstructor }) => {
+const AllInstructorsContainer = ({ instructors, deleteInstructor, fetchAllInstructors }) => {
+  useEffect(fetchAllInstructors, [fetchAllInstructors]);
   const classes = useStyles();
   const { width: pageWidth } = useWindowDimensions();
   const numColumns = Math.round(Math.max(pageWidth / CARD_WIDTH, 1));
@@ -62,9 +64,9 @@ const AllIntructorsView = ({ instructors, deleteInstructor }) => {
   );
   };
 
-  AllInstructorsView.propTypes = {
+  AllInstructorsContainer.propTypes = {
     instructors: PropTypes.array.isRequired,
     deleteInstructor: PropTypes.func.isRequired,
   };
 
-  export default AllInstructorsView;
+  export default AllInstructorsContainer;

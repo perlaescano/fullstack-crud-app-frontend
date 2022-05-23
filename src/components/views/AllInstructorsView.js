@@ -27,45 +27,46 @@ const NewInstructor = () => {
 }
 
 
-const AllInstructorsView = ({ instructors, deleteInstructor}) => {
-  const classes = useStyles();
-  const { width: pageWidth } = useWindowDimensions();
-  const numColumns = Math.round(Math.max(pageWidth / CARD_WIDTH, 1));
-  if (!instructors.length) {
-      return (
-          <NavigableContainer classes={classes}>
-              <p>There are no instructors.</p>
-              <div style={{
-                  display: "inline-grid",
-                  gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
-                  gridGap: "10px",
-              }}>
-                  <NewInstructor/>
-              </div>
-          </NavigableContainer>
-      );
-  }
-  return (
-      <NavigableContainer classes={classes}>
-          <div style={{
-              display: "inline-grid",
-              gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
-              gridGap: "10px",
-          }}>
-              <NewInstructor/>
-              {instructors.map(instructor => <InstructorCard
-                  key={instructor.id}
-                  classes={classes}
-                  deleteFn={deleteInstructor}
-                  cardHeight={CARD_HEIGHT}
-                  object={instructor}/>)}
-          </div>
-      </NavigableContainer>
-  );
+const AllInstructorsView = ({ instructors, deleteInstructor }) => {
+    const courses = useStyles();
+    const { width: pageWidth } = useWindowDimensions();
+    const numColumns = Math.round(Math.max(pageWidth / CARD_WIDTH, 1));
+
+      if (instructors.length === 0) {
+          return (
+              <NavigableContainer courses={courses}>
+                  <p>There are no Instructors.</p>
+                  <div style={{
+                      display: "inline-grid",
+                      gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
+                      gridGap: "10px",
+                  }}>
+                      <NewInstructor/>
+                  </div>
+              </NavigableContainer>
+          );
+      }
+    return (
+        <NavigableContainer courses={courses}>
+            <div style={{
+                display: "inline-grid",
+                gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
+                gridGap: "10px",
+            }}>
+                <NewInstructor/>
+                {instructors.map(instructor => <InstructorCard
+                    key={instructor.id}
+                    courses={courses}
+                    deleteFn={deleteInstructor}
+                    cardHeight={CARD_HEIGHT}
+                    object={instructor}/>)}
+            </div>
+        </NavigableContainer>
+    );
 };
 
 AllInstructorsView.propTypes = {
-  instructors: PropTypes.array.isRequired,
+    instructors: PropTypes.array.isRequired,
     deleteInstructor: PropTypes.func.isRequired,
 };
 
