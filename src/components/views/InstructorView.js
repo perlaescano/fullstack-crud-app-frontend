@@ -1,4 +1,5 @@
 import { Link,useHistory } from "react-router-dom";
+import React, { Component }  from 'react';
 
 const InstructorView = (props) => {
   const {instructor, editCourse, allCourses} = props;
@@ -9,13 +10,6 @@ const InstructorView = (props) => {
     <div>
       <h1>{instructor.firstname}</h1>
       <h3>{instructor.department}</h3>
-      <button
-        onClick={() => {
-          history.push(`/campus/${campus.id}/edit`);
-        }}
-      >
-        Edit Campus Info
-      </button>
       <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
         <div>Assigned courses:
         {assignedCourses.map( course => {
