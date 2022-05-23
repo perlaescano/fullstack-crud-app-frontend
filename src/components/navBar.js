@@ -14,13 +14,13 @@ const NavBar = () => {
                 </Typography>
 
                 <Link className="links" to={'/instructors'} style = {links}>
-                    <Button variant="contained" color="primary" style={{marginRight: '15px'}}>
+                    <Button variant="contained" style={{backgroundColor:"navy blue", marginRight: '15px'}}>
                         All Instructors
                     </Button>
                 </Link>
 
                 <Link to={'/courses'} style = {links}>
-                    <Button variant="contained" color="primary">
+                    <Button variant="contained" style = {{backgroundColor:"navy blue"}}>
                         All Courses
                     </Button>
                 </Link>

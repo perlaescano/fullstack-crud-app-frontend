@@ -1,6 +1,4 @@
 import {makeStyles} from '@mui/styles';
-//import NavigableContainer from "../containers/NavigableContainer";
-//import InstructorForm from "../forms/InstructorForm";
 import React, { Component }  from 'react';
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -14,14 +12,14 @@ return (
         <h1>New Instructor</h1>
 
         <div className={instructors.root}>
-          <div className={instructors.formContainer}>
-            <div className={instructors.formTitle}>
+          <div className={instructors.instructorFormContainer}>
+            <div className={instructors.instructorFormTitle}>
               <Typography
                 style={{
                   fontWeight: "bold",
-                  fontFamily: "Courier, sans-serif",
                   fontSize: "20px",
-                  color: "#11153e",
+                  color: "white",
+                  fontFamily: "Courier, sans-serif",
                 }}
               >
                 Add an Instructor
@@ -31,7 +29,7 @@ return (
               style={{ textAlign: "center" }}
               onSubmit={(e) => handleSubmit(e)}
             >
-              <label style={{ color: "#11153e", fontWeight: "bold" }}>
+              <label style={{ color: "black", fontWeight: "bold" }}>
                 First Name:{" "}
               </label>
               <input
@@ -43,7 +41,7 @@ return (
               <br />
               <br />
 
-              <label style={{ color: "#11153e", fontWeight: "bold" }}>
+              <label style={{ color: "black", fontWeight: "bold" }}>
                 Last Name:{" "}
               </label>
               <input
@@ -55,7 +53,7 @@ return (
               <br />
               <br />
 
-              <label style={{ color: "#11153e", fontWeight: "bold" }}>
+              <label style={{ color: "black", fontWeight: "bold" }}>
                 Image URL:{" "}
               </label>
               <input
@@ -66,7 +64,7 @@ return (
               <br />
               <br />
 
-              <Button variant="contained" color="primary" type="submit">
+              <Button variant="contained" type="submit" style = {{backgroundColor:"navy blue"}}>
                 Submit
               </Button>
               <br />
@@ -79,7 +77,19 @@ return (
 }
 
 const useStyles = makeStyles(() => ({
-    
+  instructorFormContainer: {
+    width: "500px",
+    backgroundColor: "#f0f0f5",
+    borderRadius: "5px",
+    margin: "auto",
+  },
+  instructorFormTitle: {
+    backgroundColor: "#7d0aff",
+    marginBottom: "15px",
+    textAlign: "center",
+    borderRadius: "5px 5px 0px 0px",
+    padding: "3px",
+  },
 }));
 
 

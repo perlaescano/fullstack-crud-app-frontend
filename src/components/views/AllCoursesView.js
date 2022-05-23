@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { Component }  from 'react';
+import Button from "@material-ui/core/Button";
 
 const AllCoursesView = (props) => {
   let {courses, deleteCourse} = props;
@@ -7,9 +8,9 @@ const AllCoursesView = (props) => {
   if (!courses.length) {
     return (
     <div>
-      <p>There are no courses.</p>
+      <h1>There are no courses.</h1>
       <Link to={`/newcourse`}>
-        <button>Add New Course</button>
+        <Button style = {{backgroundColor: "#7d0aff", color:"white"}}>Add New Course</Button>
       </Link>
     </div>
     );

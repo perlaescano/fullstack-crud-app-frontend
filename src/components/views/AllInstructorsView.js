@@ -1,15 +1,32 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import React, { Component }  from 'react';
+import Button from "@material-ui/core/Button";
+
 
 const AllInstructorsView = (props) => {
     const { allInstructors, deleteInstructors } = props;
   if (!allInstructors.length) {
-    return <div>There are no instructors.</div>;
+    return (
+    <div>
+      <h1>There are no instructors</h1>
+      <div>
+        <Link to={`/newInstructor`}>
+          <Button style = {{backgroundColor: "#7d0aff", color:"white"}}>Add New Instructor</Button>
+        </Link>
+      </div>
+    </div>
+  )
   }
 
   return (
+
     <div>
+      <div>
+        <Link to={`/newInstructor`}>
+          <Button>Add New Instructor</Button>
+        </Link>
+      </div>
       {allInstructors.map((instructor) => {
         let name = instructor.firstname + " " + instructor.lastname;
         return (
@@ -22,7 +39,9 @@ const AllInstructorsView = (props) => {
         );
 
       })}
+
     </div>
+
   );
 };
 
