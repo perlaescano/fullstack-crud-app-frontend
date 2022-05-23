@@ -8,11 +8,11 @@ const HomePageView = () => {
 
   return (
 
-      <div>
+      <div style={{width:'100%'}}>
         <div className="title" style = {title}>;
-          <h1 style = {{color: "white"}}>Final Project</h1>
+          <h1 style = {{color: "white", paddingBottom: "20px"}}>Final Project</h1>
         </div>
-        <img src = {hunter} alt = "Hunter College"/>
+        <img src = {hunter} alt = "Hunter College" style = {{marginTop:"-23px", width:"100%", height:"auto"}}/>
       </div>
 
   );
@@ -21,7 +21,7 @@ const HomePageView = () => {
 const title = {
   justifyContent: 'center',
   backgroundColor: '#7d0aff',
-  width: "100%",
+  //width: "100%",
   margin: "auto",
 }
 
