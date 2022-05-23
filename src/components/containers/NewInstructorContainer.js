@@ -11,7 +11,10 @@ class NewInstructorContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-
+          firstname:"",
+          lastname:"",
+          department:"",
+          imageurl:"",
           redirectId: null
         };
     }
@@ -22,7 +25,15 @@ class NewInstructorContainer extends Component {
 
     handleSubmit = async event => {
         event.preventDefault();
-        const { redirectId: oldRedirectId, ...instructor } = this.state;
+        let instructor = {
+          firstname: this.state.firstname,
+          lastname:this.state.lastname,
+          department:this.state.department,
+          imageurl:this.state.department,
+          redirectId:null
+
+        };
+        const { redirectId: oldRedirectId } = this.state;
 
         const { id: redirectId } = await this.props.addInstructor(instructor);
         this.setState({ redirectId });
@@ -36,7 +47,7 @@ class NewInstructorContainer extends Component {
 
     render() {
       if (this.state.redirectId !== null) {
-        return (<useNavigate to={`/course/${this.state.redirectId}`}/>)
+        return (<useNavigate to={`/instructor/${this.state.redirectId}`}/>)
         }
         return (
           <NewInstructorView

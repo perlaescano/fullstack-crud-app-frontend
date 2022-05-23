@@ -11,7 +11,9 @@ class NewCourseContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-
+          title:"",
+          timeslot:"",
+          location:"",
           redirectId: null
         };
     }
@@ -22,7 +24,13 @@ class NewCourseContainer extends Component {
 
     handleSubmit = async event => {
         event.preventDefault();
-        const { redirectId: oldRedirectId, ...course } = this.state;
+        let course = {
+          title: this.state.title,
+          timeslot:this.state.timeslot,
+          location:this.state.location,
+
+        };
+        const { redirectId: oldRedirectId } = this.state;
 
         const { id: redirectId } = await this.props.addCourse(course);
         this.setState({ redirectId });
