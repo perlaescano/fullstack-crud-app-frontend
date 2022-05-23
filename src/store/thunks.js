@@ -33,6 +33,34 @@ export const fetchInstructorThunk = (id) => async (dispatch) => {
   }
 };
 
+export const addInstructorThunk = instructor => async (dispatch) => {
+    try {
+        const res = await axios.post(`/api/instructors`, instructor);
+        dispatch(ac.addInstructor(res.data));
+        return res.data;
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const editInstructorThunk = instructor => async dispatch => {
+    try {
+        const updatedInstructor = await axios.put(`/api/instructors/${instructor.id}`, instructor);
+        dispatch(ac.editInstructor(updatedInstructor.data));
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const deleteInstructorThunk = instructorId => async dispatch => {
+    try {
+        await axios.delete(`/api/instructors/${instructorId}`);
+        dispatch(ac.deleteInstructor(instructorId));
+    } catch (err) {
+        console.error(err);
+    }
+};
+
 //All courses
 export const fetchAllCoursesThunk = () => async (dispatch) => {
   try {
@@ -42,6 +70,8 @@ export const fetchAllCoursesThunk = () => async (dispatch) => {
     console.error(err);
   }
 };
+
+
 
 export const addCourseThunk = (course) => async (dispatch) => {
   // course = { title: "CSCI 127" }
