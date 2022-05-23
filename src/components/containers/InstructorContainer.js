@@ -1,21 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {fetchInstructorThunk, deleteInstructorThunk, editInstructorThunk, deleteCourseThunk } from "../../store/thunks";
+import {fetchInstructorThunk, deleteInstructorThunk, editInstructorThunk, deleteCourseThunk} from "../../store/thunks";
 import { InstructorView } from "../views";
 
-const InstructorContainer = ({instructor: object, fetchInstructor, deleteInstructor, editInstructor: editObject, deleteCourse}) =>{
-  componentDidMount() {
-    //getting instructor ID from url
-    this.props.fetchInstructor(this.props.match.params.id);
-  }
-
-  render() {
+const InstructorContainer = ({instructor: object,
+                              fetchInstructor,
+                              deleteInstructor,
+                              editInstructor: editObject,
+                              deleteCourse
+                              history, match}) =>{
+    const addCourse = ({courseName}) =>
+      <Link className={courseName} to={{pathname: "/newcourse", search: `?courseId=${object.id}`}}>
+          <Button aria-label="Add New Instructor" startIcon={<AddCircleIcon/>}>
+            Add New Course
+          </Button>
+      </Link>;
+    const deleteObject = () => {
+      deleteInstructor(object.id);
+      history.goBack();
+    }
+    const fetchObject = () => fetchInstructor(match.params.id);
     return (
       <InstructorView
         instructor={this.props.instructor}
       />
     );
-  }
+
 }
 
 // map state to props
@@ -29,6 +39,9 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchInstructor: (id) => dispatch(fetchInstructorThunk(id)),
+    deleteInstructor: (id) => dispatch(deleteInstructorThunk(id)),
+    deleteCourse: (id) => dispatch(deleteInstructorThunk(id)),
+    editInstructor: (Instructor) => dispatch(editInstructorThunk(instructor)),
   };
 };
 
