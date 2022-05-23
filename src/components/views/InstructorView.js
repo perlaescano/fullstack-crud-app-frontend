@@ -5,9 +5,10 @@ const InstructorView = (props) => {
   const {instructor, editCourse, allCourses} = props;
   let assignedCourses = allCourses.filter(course => course.instructorId===instructor.id);
   let availableCourses = allCourses.filter(course => course.instructorId!==instructor.id);
-
+  if(!instructor) return <h1>No Instructor Found</h1>
   return (
     <div>
+      <img src={instructor.imageurl} alt={instructor.firstname + instructor.lastname} height="150px" />
       <h1>{instructor.firstname}</h1>
       <h3>{instructor.department}</h3>
       <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>

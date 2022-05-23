@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 
 
 const AllInstructorsView = (props) => {
-    const { allInstructors, deleteInstructors } = props;
+    const { allInstructors, deleteInstructor } = props;
   if (!allInstructors.length) {
     return (
     <div>
@@ -16,7 +16,7 @@ const AllInstructorsView = (props) => {
         </Link>
       </div>
     </div>
-  )
+    )
   }
 
   return (
@@ -27,14 +27,17 @@ const AllInstructorsView = (props) => {
           <Button>Add New Instructor</Button>
         </Link>
       </div>
+      <h1>All Instructors</h1>
       {allInstructors.map((instructor) => {
         let name = instructor.firstname + " " + instructor.lastname;
         return (
           <div key={instructor.id}>
+          <img src={instructor.imageurl} alt={instructor.firstname + instructor.lastname} height="50px" />
           <Link to={`/instructor/${instructor.id}`}>
             <h1>{name}</h1>
           </Link>
           <p>{instructor.department}</p>
+          <Button onClick={() => deleteInstructor(instructor.id)}>Delete</Button>
         </div>
         );
 

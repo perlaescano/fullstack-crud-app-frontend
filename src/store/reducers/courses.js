@@ -11,10 +11,10 @@ const allCourses = (state = [], action) => {
       case at.DELETE_COURSE:
           return state.filter(course => course.id !== action.payload);
       case at.EDIT_COURSE:
-          return state.map(course =>
+          return state.map(course => 
               course.id === action.payload.id ? action.payload : course
           );
-     
+
       default:
           return state;
   }
