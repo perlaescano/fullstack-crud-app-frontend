@@ -1,73 +1,33 @@
-import {useStyles} from "../Styles";
-import NavigableContainer from "../containers/NavigableContainer";
-import useWindowDimensions from "../../utils/WindowDimensions";
-import {InstructorCard} from "../cards/InstructorCard";
-import {Button, Card, CardActions} from "@mui/material";
-import {Link} from "react-router-dom";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import React, { Component }  from 'react';
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import React, { Component }  from 'react';
 
+const AllInstructorsView = (props) => {
+    const { allInstructors, deleteInstructors } = props;
+  if (!allInstructors.length) {
+    return <div>There are no instructors.</div>;
+  }
 
-const CARD_HEIGHT = 130;
-const CARD_WIDTH = 1.7125 * CARD_HEIGHT;
-
-const NewInstructor = () => {
   return (
-      <Card raised>
-          <CardActions>
-              <Link to={`newinstructor`}>
-                  <Button aria-label="Add New Instructor" startIcon={<AddCircleIcon/>}>
-                      Add New Instructor
-                  </Button>
-              </Link>
-          </CardActions>
-      </Card>
+    <div>
+      {allInstructors.map((instructor) => {
+        let name = instructor.firstname + " " + instructor.lastname;
+        return (
+          <div key={instructor.id}>
+          <Link to={`/instructor/${instructor.id}`}>
+            <h1>{name}</h1>
+          </Link>
+          <p>{instructor.department}</p>
+        </div>
+        );
+
+      })}
+    </div>
   );
-}
-
-
-const AllInstructorsView = ({ instructors, deleteInstructor }) => {
-    const courses = useStyles();
-    const { width: pageWidth } = useWindowDimensions();
-    const numColumns = Math.round(Math.max(pageWidth / CARD_WIDTH, 1));
-
-      if (instructors.length === 0) {
-          return (
-              <NavigableContainer courses={courses}>
-                  <p>There are no Instructors.</p>
-                  <div style={{
-                      display: "inline-grid",
-                      gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
-                      gridGap: "10px",
-                  }}>
-                      <NewInstructor/>
-                  </div>
-              </NavigableContainer>
-          );
-      }
-    return (
-        <NavigableContainer courses={courses}>
-            <div style={{
-                display: "inline-grid",
-                gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
-                gridGap: "10px",
-            }}>
-                <NewInstructor/>
-                {instructors.map(instructor => <InstructorCard
-                    key={instructor.id}
-                    courses={courses}
-                    deleteFn={deleteInstructor}
-                    cardHeight={CARD_HEIGHT}
-                    object={instructor}/>)}
-            </div>
-        </NavigableContainer>
-    );
 };
 
 AllInstructorsView.propTypes = {
-    instructors: PropTypes.array.isRequired,
-    deleteInstructor: PropTypes.func.isRequired,
+  allInstructors: PropTypes.array.isRequired,
 };
 
 export default AllInstructorsView;

@@ -1,72 +1,45 @@
-import {useStyles} from "../Styles";
-import {useEffect} from 'react';
-import NavigableContainer from "../containers/NavigableContainer";
-import useWindowDimensions from "../../utils/WindowDimensions";
-import {InstructorCard} from "../cards/InstructorCard";
-import {Button, Card, CardActions} from "@mui/material";
-import {Link} from "react-router-dom";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import React, { Component }  from 'react';
+import { Component } from "react";
+import React from "react";
+
 import PropTypes from "prop-types";
-
-
+import { connect } from "react-redux";
+import { fetchAllInstructorsThunk } from "../../store/thunks";
 import { AllInstructorsView } from "../views";
 
-const CARD_HEIGHT = 130;
-const CARD_WIDTH = 1.9125 * CARD_HEIGHT;
+class AllInstructorsContainer extends Component {
+  componentDidMount() {
+    console.log(this.props);
+    this.props.fetchAllInstructors();
+  }
 
-const NewInstructor = ({courseName}) => {
-  return (
-              <Link classname = {courseName} to={`newInstructor`}>
-                  <Button aria-label="Add New Instructor" startIcon={<AddCircleIcon/>}>
-                      Add New Instructor
-                  </Button>
-              </Link>
-  );
+  render() {
+    return (
+      <AllInstructorsView
+        allInstructors={this.props.allInstructors}
+      />
+    );
+  }
 }
 
-
-const AllInstructorsContainer = ({ instructors, deleteInstructor, fetchAllInstructors }) => {
-  useEffect(fetchAllInstructors, [fetchAllInstructors]);
-  const classes = useStyles();
-  const { width: pageWidth } = useWindowDimensions();
-  const numColumns = Math.round(Math.max(pageWidth / CARD_WIDTH, 1));
-  if (!instructors.length) {
-      return (
-          <NavigableContainer classes={classes}>
-              <p>There are no intructors.</p>
-              <div style={{
-                  display: "inline-grid",
-                  gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
-                  gridGap: "10px",
-              }}>
-                  <NewInstructor/>
-              </div>
-          </NavigableContainer>
-      );
-  }
-  return (
-      <NavigableContainer classes={classes}>
-          <div style={{
-              display: "inline-grid",
-              gridTemplateColumns: `repeat(${numColumns}, 1fr)`,
-              gridGap: "10px",
-          }}>
-              <NewInstructor/>
-              {instructors.map(instructors => <InstructorCard
-                  key={instructors.id}
-                  classes={classes}
-                  deleteFn={deleteInstructor}
-                  cardHeight={CARD_HEIGHT}
-                  object={instructors}/>)}
-          </div>
-      </NavigableContainer>
-  );
+// Map state to props;
+const mapState = (state) => {
+  return {
+    allInstructors: state.allInstructors,
   };
+};
 
-  AllInstructorsContainer.propTypes = {
-    instructors: PropTypes.array.isRequired,
-    deleteInstructor: PropTypes.func.isRequired,
+// Map dispatch to props;
+const mapDispatch = (dispatch) => {
+  return {
+    fetchAllInstructors: () => dispatch(fetchAllInstructorsThunk()),
   };
+};
 
-  export default AllInstructorsContainer;
+// Type check props;
+AllInstructorsContainer.propTypes = {
+  allInstructors: PropTypes.array.isRequired,
+  fetchAllInstructors: PropTypes.func.isRequired,
+};
+
+// Export our store-connected container by default;
+export default connect(mapState, mapDispatch)(AllInstructorsContainer);

@@ -10,7 +10,7 @@ const InstructorContainer = ({instructor: object,
                               fetchInstructor,
                               deleteInstructor,
                               editInstructor: editObject,
-                              deleteCourse
+                              deleteCourse,
                               history, match}) =>{
     const addCourse = ({courseName}) =>
       <Link className={courseName} to={{pathname: "/newcourse", search: `?courseId=${object.id}`}}>

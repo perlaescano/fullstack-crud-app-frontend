@@ -43,6 +43,24 @@ export const addInstructorThunk = instructor => async (dispatch) => {
     }
 };
 
+export const editInstructorThunk = instructor => async dispatch => {
+    try {
+        const updatedInstructor = await axios.put(`/api/instructors/${instructor.id}`, instructor);
+        dispatch(ac.editInstructor(updatedInstructor.data));
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const deleteInstructorThunk = instructorId => async dispatch => {
+    try {
+        await axios.delete(`/api/instructors/${instructorId}`);
+        dispatch(ac.deleteInstructor(instructorId));
+    } catch (err) {
+        console.error(err);
+    }
+};
+
 //All courses
 export const fetchAllCoursesThunk = () => async (dispatch) => {
   try {
