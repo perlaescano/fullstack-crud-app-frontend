@@ -1,5 +1,4 @@
 
-import NavigableContainer from "../containers/NavigableContainer";
 import React from 'react';
 import hunter from "../img/hunter.jpg"
 
