@@ -85,7 +85,7 @@ class EditInstructorContainer extends Component {
 
 const mapState = (state) => {
   return {
-    campus: state.instructor,
+    instructor: state.instructor,
   };
 };
 
