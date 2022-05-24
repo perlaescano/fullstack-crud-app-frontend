@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 const AllCoursesView = (props) => {
   let {courses, deleteCourse} = props;
   //courses = [{id: 300, title: "hello"}]
+  // Check if there are courses
   if (!courses.length) {
     return (
     <div>

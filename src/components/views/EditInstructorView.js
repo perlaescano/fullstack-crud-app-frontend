@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const EditInstructorView = (props) => {
   const { instructor, handleChange, handleSubmit } = props;
+  // there are no instructors
   if (!instructor.id){
     return <h1>No instructors available</h1>;
   }
@@ -87,6 +88,7 @@ const EditInstructorView = (props) => {
   );
 };
 
+//style forms for the above
 const useStyles = makeStyles(() => ({
   courseFormContainer: {
     width: "500px",
