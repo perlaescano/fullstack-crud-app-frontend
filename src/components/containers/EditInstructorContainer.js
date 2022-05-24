@@ -66,7 +66,6 @@ class EditInstructorContainer extends Component {
       return <Redirect to={`/instructor/${this.state.redirectId}`} />;
     }
 
-    // Display the input form via the corresponding View component
     return (
       <div>
         <EditInstructorView
