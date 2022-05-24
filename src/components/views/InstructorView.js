@@ -13,7 +13,7 @@ const InstructorView = (props) => {
       <img src={instructor.imageurl} alt={instructor.firstname + instructor.lastname} height="150px" />
       <h1>{instructor.firstname}</h1>
       <h3>{instructor.department}</h3>
-      <Button onClick={() => {history.push(`/instructor/${instructor.id}/edit`);}}>Edit Instructor</Button>      
+      <Button onClick={() => {history.push(`/instructor/${instructor.id}/edit`);}}>Edit Instructor</Button>
           <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
         <div>Assigned courses:
         {assignedCourses.map( course => {
@@ -30,10 +30,12 @@ const InstructorView = (props) => {
         {availableCourses.map( course => {
           return (
             <div key={course.id}>
-            <Link to={`/course/${course.id}`}>
-              <h4>{course.title}</h4>
-            </Link>
-            <button onClick={() => editCourse({id:course.id, instructorId: instructor.id})}>+</button>
+              {instructor.course ? (<Link to={`/course/${instructor.course.id}`}>{course.title}</Link>) :
+              (<p>No Course</p>)}
+              <Link to={`/course/${course.id}`}>
+                <h4>{course.title}</h4>
+              </Link>
+              <button onClick={() => editCourse({id:course.id, instructorId: instructor.id})}>+</button>
             </div>
           );
         })}</div>
