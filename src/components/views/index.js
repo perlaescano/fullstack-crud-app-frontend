@@ -3,6 +3,7 @@
 export { default as AllInstructorsView } from "./AllInstructorsView";
 export { default as AllCoursesView } from "./AllCoursesView";
 export { default as NewCourseView } from "./NewCourseView";
+export { default as EditCourseView } from "./EditCourseView";
 export { default as InstructorView } from "./InstructorView";
 export { default as NewInstructorView } from "./NewInstructorView";
 export { default as EditInstructorView } from "./EditInstructorView";

@@ -25,8 +25,7 @@ class EditInstructorContainer extends Component {
     if (this.props.instructor !== originProp.instructor) {
       this.setState((prev) => {
         return {
-          ...prev,
-          ...this.props.instructor,
+          ...prev,...this.props.instructor,
         };
       });
     }

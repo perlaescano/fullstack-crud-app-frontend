@@ -1,23 +1,28 @@
-import React from 'react';
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import React from 'react';
 
-const EditInstructorView = (props) => {
-  const { instructor, handleChange, handleSubmit } = props;
-  if (!instructor.id){
-    return <h1>No instructors available</h1>;
-  }
+
+
+const EditCourseView = (props) => {
+  const { course, handleChange, handleSubmit } = props;
   const courses = useStyles();
+  if (!course.id){
+    return <h1>No courses available</h1>;
+  }
   return (
     <div>
-      <h1>Edit Instructor</h1>
+      <h1>New Course</h1>
+
       <div className={courses.root}>
         <div className={courses.courseFormContainer}>
           <div className={courses.courseFormTitle}>
             <Typography
-              style={{fontWeight: "bold", fontSize: "20px",color: "white",fontFamily: "Courier, sans-serif",}}>
-              Edit an Instructor
+              style={{
+                fontWeight: "bold", fontSize: "20px", color: "white", fontFamily: "Courier, sans-serif",
+              }}>
+              Edit a Course
             </Typography>
           </div>
           <form
@@ -25,51 +30,38 @@ const EditInstructorView = (props) => {
             onSubmit={(e) => handleSubmit(e)}
           >
             <label style={{ color: "black", fontWeight: "bold" }}>
-              First Name:{" "}
+              Title:{" "}
             </label>
             <input
               type="text"
-              name="firstname"
+              name="title"
+              value={course.title}
               onChange={(e) => handleChange(e)}
-              value={instructor.firstname}
+            />
+            <br />
+            <br />
+
+            <label style={{ color: "black", fontWeight: "bold" }}>
+              Timeslot:{" "}
+            </label>
+            <input
+              type="text"
+              name="timeslot"
+              onChange={(e) => handleChange(e)}
+              value={course.timeslot}
               required
             />
             <br />
             <br />
 
             <label style={{ color: "black", fontWeight: "bold" }}>
-              Last Name:{" "}
+              Location:{" "}
             </label>
             <input
-              type="text"
-              name="lastname"
+              type="test"
+              name="location"
               onChange={(e) => handleChange(e)}
-              value={instructor.lastname}
-              required
-            />
-            <br />
-            <br />
-            <label style={{ color: "black", fontWeight: "bold" }}>
-              Department:{" "}
-            </label>
-            <input
-              type="text"
-              name="department"
-              onChange={(e) => handleChange(e)}
-              value={instructor.department}
-              required
-            />
-            <br />
-            <br />
-
-            <label style={{ color: "black", fontWeight: "bold" }}>
-              ImageURL:{" "}
-            </label>
-            <input
-              type="text"
-              name="ImageURL"
-              onChange={(e) => handleChange(e)}
-              value={instructor.imageurl}
+              value={course.location }
               required
             />
             <br />
@@ -104,5 +96,4 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-
-export default EditInstructorView;
+export default EditCourseView;

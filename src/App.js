@@ -13,6 +13,7 @@ import {
   NewCourseContainer,
   NewInstructorContainer,
   EditInstructorContainer,
+  EditCourseContainer,
 } from './components/containers';
 import React, { Component }  from 'react';
 import NavBar from './components/navBar'
@@ -33,6 +34,7 @@ const App = () => {
         <Route exact path="/newcourse" component={NewCourseContainer} />
         <Route exact path="/newInstructor" component={NewInstructorContainer} />
         <Route exact path="/course/:id" component={CourseContainer} />
+        <Route exact path="/course/:id/edit" component={EditCourseContainer} />
 
       </Switch>
     </div>

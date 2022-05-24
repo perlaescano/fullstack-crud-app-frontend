@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
+import { Redirect } from "react-router-dom";
 import NewCourseView from '../views/NewCourseView';
 import { addCourseThunk } from '../../store/thunks';
 import React from 'react';
@@ -14,12 +14,13 @@ class NewCourseContainer extends Component {
           title:"",
           timeslot:"",
           location:"",
+          redirect:false,
           redirectId: null
         };
     }
 
     handleChange = event => this.setState({
-        [event.target.name]: event.target.value
+        [event.target.name]: event.target.value,
       });
 
     handleSubmit = async event => {
@@ -30,27 +31,34 @@ class NewCourseContainer extends Component {
           location:this.state.location,
 
         };
-        const { redirectId: oldRedirectId } = this.state;
+        console.log(course);
 
-        const { id: redirectId } = await this.props.addCourse(course);
-        this.setState({ redirectId });
+        let newCourse = await this.props.addCourse(course);
 
-
+        this.setState({
+          title:"",
+          timeslot:"",
+          location:"",
+          redirect:true,
+          redirectId:newCourse.id,
+        });
     }
 
     componentWillUnmount() {
-       this.setState({  redirectId: null });
+       this.setState({  redirect: false,redirectId: null, });
     }
 
     render() {
-      if (this.state.redirectId !== null) {
-        return (<useNavigate to={`/course/${this.state.redirectId}`}/>)
+      if (this.state.redirect) {
+        return (<Redirect to={`/course/${this.state.redirectId}`}/>)
         }
         return (
-          <NewCourseView
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-         />
+          <div>
+            <NewCourseView
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+           />
+          </div>
         );
     }
   }
@@ -58,6 +66,7 @@ class NewCourseContainer extends Component {
 const mapDispatchToProps = (dispatch) => {
   return ({
       addCourse: (course) => dispatch(addCourseThunk(course)),
+
     })
 }
 
