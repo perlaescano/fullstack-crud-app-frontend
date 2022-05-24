@@ -1,8 +1,7 @@
 
 import React from 'react';
+//import image of hinter from image folder
 import hunter from "../img/hunter.jpg"
-
-
 const HomePageView = () => {
 
   return (
@@ -11,6 +10,7 @@ const HomePageView = () => {
         <div className="title" style = {title}>.
           <h1 style = {{color: "white", paddingBottom: "20px", }}>Final Project</h1>
         </div>
+        // Pastes the image of hunter college
         <img src = {hunter} alt = "Hunter College" style = {{marginTop:"-23px", width:"100%", height:"auto"}}/>
       </div>
 

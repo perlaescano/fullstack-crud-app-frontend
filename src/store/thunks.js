@@ -33,8 +33,10 @@ export const fetchInstructorThunk = (id) => async (dispatch) => {
   }
 };
 
+// Add instructor
 export const addInstructorThunk = instructor => async (dispatch) => {
     try {
+        //post an instructor to the list of instructors
         let res = await axios.post(`/api/instructors`, instructor);
         dispatch(ac.addInstructor(res.data));
         return res.data;
@@ -43,8 +45,10 @@ export const addInstructorThunk = instructor => async (dispatch) => {
     }
 };
 
+// Edit instructor
 export const editInstructorThunk = instructor => async dispatch => {
     try {
+        // put the edit into the instructor at that instructor id
         let updatedInstructor = await axios.put(`/api/instructors/${instructor.id}`, instructor);
         dispatch(ac.editInstructor(updatedInstructor.data));
     } catch (err) {
@@ -52,8 +56,10 @@ export const editInstructorThunk = instructor => async dispatch => {
     }
 };
 
+// Delete Instructor
 export const deleteInstructorThunk = instructorId => async dispatch => {
     try {
+        // Using axios delete
         await axios.delete(`/api/instructors/${instructorId}`);
         dispatch(ac.deleteInstructor(instructorId));
     } catch (err) {

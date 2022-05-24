@@ -8,6 +8,7 @@ import React from 'react';
 const EditCourseView = (props) => {
   const { course, handleChange, handleSubmit } = props;
   const courses = useStyles();
+  // no courses available
   if (!course.id){
     return <h1>No courses available</h1>;
   }

@@ -10,9 +10,11 @@ const InstructorView = (props) => {
   if(!instructor) return <h1>No Instructor Found</h1>
   return (
     <div>
+      // Show the instructor image , otherwise represent them as their name
       <img src={instructor.imageurl} alt={instructor.firstname + instructor.lastname} height="150px" />
       <h1>{instructor.firstname}</h1>
       <h3>{instructor.department}</h3>
+      // Go to the edit form
       <Button onClick={() => {history.push(`/instructor/${instructor.id}/edit`);}}>Edit Instructor</Button>
           <div style={{display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
         <div>Assigned courses:
@@ -30,6 +32,7 @@ const InstructorView = (props) => {
         {availableCourses.map( course => {
           return (
             <div key={course.id}>
+              // checks if the instructor has a course
               {instructor.course ? (<Link to={`/course/${instructor.course.id}`}>{course.title}</Link>) :
               (<p>No Course</p>)}
               <Link to={`/course/${course.id}`}>

@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 
 const AllInstructorsView = (props) => {
     const { allInstructors, deleteInstructor } = props;
+  // Check if there are instructors
   if (!allInstructors.length) {
     return (
     <div>

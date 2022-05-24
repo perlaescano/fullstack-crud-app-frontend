@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 const CourseView = (props) => {
   const history = useHistory();
   const { course } = props;
+  // Checks for courses
   if(!course){
     return <h1>The course does not exist</h1>
   }
@@ -20,6 +21,7 @@ const CourseView = (props) => {
       >
         Edit Course Info
       </Button>
+      // Check if the course has an instructor, else so that there is no instructor
       {course.instructor ? (<Link to={`/instructor/${course.instructor.id}`}>{course.instructor.firstname + " " + course.instructor.lastname}</Link>) :
       (<p>No Instructor</p>)}
     </div>
