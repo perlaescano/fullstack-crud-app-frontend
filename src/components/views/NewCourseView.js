@@ -15,10 +15,7 @@ return (
       <div className={courses.courseFormTitle}>
         <Typography
           style={{
-            fontWeight: "bold",
-            fontSize: "20px",
-            color: "white",
-            fontFamily: "Courier, sans-serif",
+            fontWeight: "bold", fontSize: "20px", color: "white", fontFamily: "Courier, sans-serif",
           }}
         >
           Add a Course

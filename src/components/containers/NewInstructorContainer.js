@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-//import NewInstructorView from '../views/NewInstructorView';
 import { addInstructorThunk } from '../../store/thunks';
 import {NewInstructorView} from "../views";
 import React from 'react';
+import { Redirect } from "react-router-dom";
 
 
 class NewInstructorContainer extends Component {
@@ -15,11 +15,12 @@ class NewInstructorContainer extends Component {
           lastname:"",
           department:"",
           imageurl:"",
+          redirect: false,
           redirectId: null
         };
     }
 
-    handleChange = event => this.setState({
+    handleChange = (event) => this.setState({
         [event.target.name]: event.target.value
       });
 
@@ -29,31 +30,43 @@ class NewInstructorContainer extends Component {
           firstname: this.state.firstname,
           lastname:this.state.lastname,
           department:this.state.department,
-          imageurl:this.state.department,
-          redirectId:null
 
         };
+
+        let newInstructor = await this.props.addInstructor(instructor);
+
+        this.setState({
+          firstname: "",
+          lastname:"",
+          department:"",
+          imageurl:"",
+          redirect: true,
+          redirectId: newInstructor.id,
+        });
+      };
+      /*
         const { redirectId: oldRedirectId } = this.state;
 
         const { id: redirectId } = await this.props.addInstructor(instructor);
         this.setState({ redirectId });
-
-
-    }
+        */
 
     componentWillUnmount() {
-       this.setState({  redirectId: null });
+       this.setState({  redirect: false,redirectId: null });
     }
 
     render() {
       if (this.state.redirectId !== null) {
-        return (<useNavigate to={`/instructor/${this.state.redirectId}`}/>)
+        return (<Redirect to={`/instructor/${this.state.redirectId}`}/>)
         }
         return (
-          <NewInstructorView
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-         />
+          <div>
+            <NewInstructorView
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            />
+          </div>
+
         );
     }
   }

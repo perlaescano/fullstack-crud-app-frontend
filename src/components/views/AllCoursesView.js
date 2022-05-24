@@ -8,7 +8,7 @@ const AllCoursesView = (props) => {
   if (!courses.length) {
     return (
     <div>
-      <h1>There are no courses.</h1>
+      <h1>There are no courses</h1>
       <Link to={`/newcourse`}>
         <Button style = {{backgroundColor: "#7d0aff", color:"white"}}>Add New Course</Button>
       </Link>

@@ -35,7 +35,7 @@ export const fetchInstructorThunk = (id) => async (dispatch) => {
 
 export const addInstructorThunk = instructor => async (dispatch) => {
     try {
-        const res = await axios.post(`/api/instructors`, instructor);
+        let res = await axios.post(`/api/instructors`, instructor);
         dispatch(ac.addInstructor(res.data));
         return res.data;
     } catch (err) {
@@ -45,7 +45,7 @@ export const addInstructorThunk = instructor => async (dispatch) => {
 
 export const editInstructorThunk = instructor => async dispatch => {
     try {
-        const updatedInstructor = await axios.put(`/api/instructors/${instructor.id}`, instructor);
+        let updatedInstructor = await axios.put(`/api/instructors/${instructor.id}`, instructor);
         dispatch(ac.editInstructor(updatedInstructor.data));
     } catch (err) {
         console.error(err);
@@ -64,7 +64,7 @@ export const deleteInstructorThunk = instructorId => async dispatch => {
 //All courses
 export const fetchAllCoursesThunk = () => async (dispatch) => {
   try {
-    let res = await axios.get(`${path}/courses`);
+    let res = await axios.get(`/api/courses`);
     dispatch(ac.fetchAllCourses(res.data));
   } catch(err) {
     console.error(err);
@@ -76,7 +76,7 @@ export const fetchAllCoursesThunk = () => async (dispatch) => {
 export const addCourseThunk = (course) => async (dispatch) => {
   // course = { title: "CSCI 127" }
   try {
-    let res = await axios.post(`${path}/courses`, course);
+    let res = await axios.post(`/api/courses`, course);
     dispatch(ac.addCourse(res.data));
     return res.data;
   } catch(err) {
@@ -86,7 +86,7 @@ export const addCourseThunk = (course) => async (dispatch) => {
 
 export const deleteCourseThunk = courseId => async dispatch => {
   try {
-    await axios.delete(`${path}/courses/${courseId}`);
+    await axios.delete(`/api/courses/${courseId}`);
     //delete succesful so change state with dispatch
     dispatch(ac.deleteCourse(courseId));
   } catch(err) {
@@ -96,7 +96,7 @@ export const deleteCourseThunk = courseId => async dispatch => {
 
 export const editCourseThunk = course => async dispatch => {
   try {
-    let updatedCourse = await axios.put(`${path}/courses/${course.id}`, course);
+    let updatedCourse = await axios.put(`/api/courses/${course.id}`, course);
     dispatch(ac.editCourse(updatedCourse));
   } catch(err) {
     console.error(err);
@@ -106,7 +106,7 @@ export const editCourseThunk = course => async dispatch => {
 //Single course
 export const fetchCourseThunk = id => async dispatch => {
   try {
-    let res = await axios.get(`${path}/courses/${id}`);
+    let res = await axios.get(`/api/courses/${id}`);
     dispatch(ac.fetchCourse(res.data));
   } catch(err) {
     console.error(err);
