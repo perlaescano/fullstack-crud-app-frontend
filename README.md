@@ -10,36 +10,36 @@ Using Node, Express, React, Redux, PostgreSQL, and Sequelize, build a RESTful fu
 
 
 As a user I:
-* [ ] will land on a visually pleasing homepage by default, which allows navigation to view all courses and all instructors
+* [x] will land on a visually pleasing homepage by default, which allows navigation to view all courses and all instructors
 * can navigate to all instructors view, and
-   * [ ] see a list of all instructors in the database
-   * [ ] see an informative message if no instructors exist
-   * [ ] add a new instructor
+   * [x] see a list of all instructors in the database
+   * [x] see an informative message if no instructors exist
+   * [x] add a new instructor
    * [ ] with a validated form displaying real-time error messages
 
 
 * can navigate to a single instructor view, and
-   * [ ] see details about a single instructor, including courses they teach (if any) 
-   * [ ] see an informative message if no courses belong to that instructor
-   * [ ] can navigate to single course view (see below)
-   * [ ] delete the instructor 
-   * [ ] edit instructor information (including adding/removing courses)
+   * [x] see details about a single instructor, including courses they teach (if any) 
+   * [x] see an informative message if no courses belong to that instructor
+   * [x] can navigate to single course view (see below)
+   * [x] delete the instructor 
+   * [x] edit instructor information (including adding/removing courses)
    * [ ] with a validated form displaying real-time error messages
 
 
 * can navigate to all courses view, and
-   * [ ] see a list of all courses in the database
-   * [ ] see an informative message if no courses exist
-   * [ ] add a new course
+   * [x] see a list of all courses in the database
+   * [x] see an informative message if no courses exist
+   * [x] add a new course
    * [ ] with a validated form displaying real-time error messages
 
 
 * can navigate to a single course view, and
-   * [ ] see details about a single course, including the instructor
-   * [ ] should display “Staff” if the course is not assigned an instructor
-   * [ ] navigate to single instructor view of the course’s instructor
-   * [ ] delete the course
-   * [ ] edit the course’s information (including instructor )
+   * [x] see details about a single course, including the instructor
+   * [x] should display “Staff” if the course is not assigned an instructor
+   * [x] navigate to single instructor view of the course’s instructor
+   * [x] delete the course
+   * [x] edit the course’s information (including instructor )
    * [ ] with a validated form displaying real-time error messages
 
 
@@ -74,19 +74,19 @@ API (Express, Sequelize)
 
 
 State management (Redux)
-- [ ] Write a instructors sub-reducer to manage instructors in your Redux store 
+- [x] Write a instructors sub-reducer to manage instructors in your Redux store 
 - [x] Write a courses sub-reducer to manage courses in your Redux store
 
 
 UI (React)
-- [ ] Write a component to display a list of all instructors (just their names and images) 
+- [x] Write a component to display a list of all instructors (just their names and images) 
 - [x] Write a component to display a list of all courses (just their names)
 
 
 Client-side routing (React-Router)
-- [ ] Display the all-instructors component when the url matches `/instructors`
-- [ ] Display the all-courses component when the url matches `/courses` 
-- [ ] Add links to the navbar that can be used to navigate to the all-instructors view and the all-courses view
+- [x] Display the all-instructors component when the url matches `/instructors`
+- [x] Display the all-courses component when the url matches `/courses` 
+- [x] Add links to the navbar that can be used to navigate to the all-instructors view and the all-courses view
 
 
 Single course and Single instructor 
@@ -98,68 +98,68 @@ API (Express, Sequelize)
 
 
 UI (React)
-- [ ] Write a component to display a single instructor with the following information:  
-- [ ] The instructor's name, image, and department
-- [ ] A list of all courses that instructor is assigned 
-- [ ] Write a component to display a single course with the following information:   
-- [ ] The course title, timeslot, and location
-- [ ] The name of the instructor 
+- [x] Write a component to display a single instructor with the following information:  
+- [x] The instructor's name, image, and department
+- [x] A list of all courses that instructor is assigned 
+- [x] Write a component to display a single course with the following information:   
+- [x] The course title, timeslot, and location
+- [x] The name of the instructor 
 
 
 
 
 Client-side routing (React-Router)
-- [ ] Display the appropriate instructor's info when the url matches `/instructors/:instructorId`
- - [ ] Clicking on a instructor from the all-instructors view should navigate to show that instructor in the single-instructor view
- - [ ] Display the appropriate course when the url matches `/courses/:courseId`
- - [ ] Clicking on a course from the all-courses view should navigate to show that course in the single-course view  
-- [ ] Clicking on the name of a course in the single-instructor view should navigate to show that course in the single-course view
- - [ ] Clicking on the name of a instructor in the single-course view should navigate to show that instructor in the single-instructor view    
+- [x] Display the appropriate instructor's info when the url matches `/instructors/:instructorId`
+ - [x] Clicking on a instructor from the all-instructors view should navigate to show that instructor in the single-instructor view
+ - [x] Display the appropriate course when the url matches `/courses/:courseId`
+ - [x] Clicking on a course from the all-courses view should navigate to show that course in the single-course view  
+- [x] Clicking on the name of a course in the single-instructor view should navigate to show that course in the single-course view
+ - [x] Clicking on the name of a instructor in the single-course view should navigate to show that instructor in the single-instructor view    
 
 
 Editing a instructor and Editing a course 
 
 
 API (Express, Sequelize)
- - [ ] Write a route to edit a new instructor 
+ - [x] Write a route to edit a new instructor 
 - [x] Write a route to edit a new course  
 
 
 UI (React) 
-- [ ] Write a component to display a form for editing an instructor’s information
-- [ ] Display this component EITHER as part of the single-instructor view, or as its own view
- - [ ] Submitting the form with should:   
-- [ ] Make a request that causes the instructor to be updated in the database   
-- [ ] Display the updates without needing to refresh the page  
+- [x] Write a component to display a form for editing an instructor’s information
+- [x] Display this component EITHER as part of the single-instructor view, or as its own view
+ - [x] Submitting the form with should:   
+- [x] Make a request that causes the instructor to be updated in the database   
+- [x] Display the updates without needing to refresh the page  
 
 
-- [ ] Write a component to display a form for editing a course
-- [ ] Display this component EITHER as part of the single-course view, or as its own view
- - [ ] Submitting the form with a should:   
-- [ ] Make a request that causes the course to be updated in the database   
-- [ ] Display the updates without needing to refresh the page  
+- [x] Write a component to display a form for editing a course
+- [x] Display this component EITHER as part of the single-course view, or as its own view
+ - [x] Submitting the form with a should:   
+- [x] Make a request that causes the course to be updated in the database   
+- [x] Display the updates without needing to refresh the page  
 
 
 Adding course and Adding instructor
 
 
 API (Express, Sequelize)
- - [ ] Write a route to add a new instructor 
-- [ ] Write a route to add a new course  
+ - [x] Write a route to add a new instructor 
+- [x] Write a route to add a new course  
 
 
 UI (React ) 
-- [ ] Write a component to display a form for adding a new instructor that contains inputs for at least the name and address. 
-- [ ] Display this component EITHER as part of the all-instructors view, or as its own view
- - [ ] Submitting the form with a valid name/address should:   
-- [ ] Make a request that causes the new instructor to be persisted in the database   
+- [x] Write a component to display a form for adding a new instructor that contains inputs for at least the name and address. 
+- [x] Display this component EITHER as part of the all-instructors view, or as its own view
+ - [x] Submitting the form with a valid name/address should:   
+- [x] Make a request that causes the new instructor to be persisted in the database   
 - [ ] Add the new instructor to the list of instructors without needing to refresh the page  
 
 
-- [ ] Write a component to display a form for adding a new course that contains inputs for at least first name, last name and email 
-- [ ] Display this component EITHER as part of the all-courses view, or as its own view
- - [ ] Submitting the form with a valid first name/last name/email should:   
-- [ ] Make a request that causes the new course to be persisted in the database   
+- [x] Write a component to display a form for adding a new course that contains inputs for at least first name, last name and email 
+- [x] Display this component EITHER as part of the all-courses view, or as its own view
+ - [x] Submitting the form with a valid first name/last name/email should:   
+- [x] Make a request that causes the new course to be persisted in the database   
 - [ ] Add the new course to the list of courses without needing to refresh the page  
 
 
@@ -172,11 +172,11 @@ API (Express, Sequelize)
 
 
 UI (React)
-- [ ] In the all-instructors view, include an `X` button next to each instructor 
-- [ ] Clicking the `X` button should:   
-- [ ] Make a request that causes that instructor to be removed from database   
-- [ ] Remove the instructor from the list of instructors without needing to refresh the page  
-- [ ] In the all-courses view, include an `X` button next to each course
-- [ ] Clicking the `X` button should:   
-- [ ] Make a request that causes that course to be removed from database   
-- [ ] Remove the course from the list of courses without needing to refresh the page
+- [x] In the all-instructors view, include an `X` button next to each instructor 
+- [x] Clicking the `X` button should:   
+- [x] Make a request that causes that instructor to be removed from database   
+- [x] Remove the instructor from the list of instructors without needing to refresh the page  
+- [x] In the all-courses view, include an `X` button next to each course
+- [x] Clicking the `X` button should:   
+- [x] Make a request that causes that course to be removed from database   
+- [x] Remove the course from the list of courses without needing to refresh the page
