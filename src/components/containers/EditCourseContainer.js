@@ -44,7 +44,7 @@ class EditCourseContainer extends Component {
       location:this.state.location,
     };
 
-    let edittedCourse = await this.props.editCourse(course);
+    await this.props.editCourse(course);
 
     this.setState((prev) => {
       return {

@@ -13,7 +13,7 @@ class EditInstructorContainer extends Component {
         department:"",
         imageurl:"",
         redirect: false,
-        redirectId: null,
+        redirectId: null
       };
   }
 
@@ -46,20 +46,15 @@ class EditInstructorContainer extends Component {
       department:this.state.department,
       imageurl: this.state.imageUrl,
     };
-    let edittedInstructor = await this.props.editInstructor(instructor);
+    await this.props.editInstructor(instructor);
 
-    if(edittedInstructor){
-      this.setState((prev) => {
-        return {
-          ...prev,
-          redirect: true,
-          redirectId: edittedInstructor.id,
-        };
-      });
-    }else{
-
-    }
-
+    this.setState((prev) => {
+      return {
+        ...prev,
+        redirect: true,
+        redirectId: instructor.id,
+      };
+    });
   };
 
   componentWillUnmount() {

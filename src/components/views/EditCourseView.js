@@ -67,19 +67,6 @@ const EditCourseView = (props) => {
             <br />
             <br />
 
-            <label style={{ color: "black", fontWeight: "bold" }}>
-              Instructor:{" "}
-            </label>
-            <input
-              type="test"
-              name="instructor"
-              onChange={(e) => handleChange(e)}
-              value={course.instructor}
-
-            />
-            <br />
-            <br />
-
             <Button variant="contained" type="submit" style = {{backgroundColor:"navy blue"}}>
               Submit
             </Button>
