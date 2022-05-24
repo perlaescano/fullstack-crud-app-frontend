@@ -8,6 +8,7 @@ Perla Escano Estrella @perlaescano\
 Goal:
 Using Node, Express, React, Redux, PostgreSQL, and Sequelize, build a RESTful full-stack web application to manage courses and instructors. This will cover all of the CRUD operations: Create, Read, Update, and Delete. This will encompass writing models, querying a database with an ORM, designing routes/endpoints and handler functions to process user requests and generate responses, writing out React Components, managing the state of the application with React-Redux, and much more. This will also involve having two individual repositories/applications (a separate server and a separate client), which encourages separation of concerns and modularity. 
 
+* Unfortunately, we were unable to get to real-time error messages as a part of the key functionality of our project. We have a few ideas to implement it. We were also unable to test whether or not we could add another instructor in real-time, without refreshing. Other than that, we have implemented the code for most functionality, but had trouble relaying it for some visualizations on the website.
 
 As a user I:
 * [x] will land on a visually pleasing homepage by default, which allows navigation to view all courses and all instructors
